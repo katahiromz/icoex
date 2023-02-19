@@ -1,0 +1,24 @@
+CXX = bcc32
+CFLAGS = -v -y -O2
+
+all: icoex.exe
+
+icoex.exe: icoex.obj stream.obj ne.obj icoex.rc
+	$(CXX) -W $(CFLAGS) -eicoex.exe icoex.obj stream.obj ne.obj
+	brc32 icoex
+
+icoex.obj: icoex.cpp icoex.h resource.h ne.h
+	$(CXX) $(CFLAGS) -oicoex.obj -c icoex.cpp
+
+stream.obj: stream.cpp stream.h
+	$(CXX) $(CFLAGS) -ostream.obj -c stream.cpp
+
+ne.obj: ne.cpp ne.h
+	$(CXX) $(CFLAGS) -one.obj -c ne.cpp
+
+clean:
+	if exist *.obj del *.obj
+	if exist *.res del *.res
+	if exist *.tds del *.tds
+	if exist *.td2 del *.td2
+	if exist *.tr2 del *.tr2

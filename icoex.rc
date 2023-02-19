@@ -1,0 +1,88 @@
+#include <windows.h>
+#include "resource.h"
+
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+
+1 ICON "icoex.ico"
+
+1 MENU DISCARDABLE
+{
+    POPUP "ファイル(&F)"
+    {
+        MENUITEM "アイコンを含むファイルを開く(O)...\tCtrl+O", ID_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "終了(&X)\tAlt+F4", ID_EXIT
+    }
+    POPUP "アイコン(&I)"
+    {
+        MENUITEM "抽出(&X)...\tCtrl+E", ID_EXTRACT
+        MENUITEM "すべて抽出(&A)...\tCtrl+L", ID_EXTRACTALL
+    }
+}
+
+2 MENU DISCARDABLE
+{
+    POPUP "Popup"
+    {
+        MENUITEM "抽出(&X)...\tCtrl+E", ID_EXTRACT
+    }
+}
+
+STRINGTABLE
+{
+    1, "アイコンの抽出先を選んでください。"
+    2, "%s\\Icon_%03d.ico"
+    3, "Icon_%03d.ico"
+    4, "アイコン ファイルの作成に失敗しました。"
+    5, "アイコン ファイルの書き込みに失敗しました。"
+    7, "アイコンを含むファイル (*.dll;*.exe;*.ocx;*.scr;*.cpl;*.icl)"
+    8, "アイコン ファイル (*.ico)"
+    9, "すべてのファイル (*.*)"
+    10, "アイコンを含むファイルを選んでください。"
+    11, "アイコンの保存"
+    12, "指定されたファイルが見つかりません。"
+    13, "アイコンの抽出が完了しました。"
+    14, "アイコン抽出君"
+    15, "抽出したいアイコンを選択してください。"
+    16, "このファイルにはアイコンが１個もありません。"
+    17, "%d 個のアイコン"
+    18, "%d 個のアイコン 序数 %d"
+    19, "%s - アイコン抽出君"
+    20, "アイコンの抽出に失敗しました。"
+    21, "ファイルが開けません。"
+}
+
+1 ACCELERATORS
+{
+    "^O", ID_OPEN
+    "^E", ID_EXTRACT
+    "^L", ID_EXTRACTALL
+}
+
+1 24 "icoex.exe.Manifest"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     1,3,1,0
+PRODUCTVERSION  1,3,1,0
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_APP
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "041104B0"
+        {
+            VALUE "CompanyName", "片山博文MZ\0"
+            VALUE "FileDescription", "アイコンを抽出するソフトウェアです。\0"
+            VALUE "FileVersion", "1.3.1\0"
+            VALUE "InternalName", "icoex\0"
+            VALUE "LegalCopyright", "(C) 片山博文MZ. All rights reserved.\0"
+            VALUE "OriginalFilename", "icoex.exe\0"
+            VALUE "ProductName", "アイコン抽出君\0"
+            VALUE "ProductVersion", "1.3.1\0"
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x0411, 0x04B0
+    }
+}
